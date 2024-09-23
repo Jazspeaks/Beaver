@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa"  dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+</head>
+<body>
+    <!-- Welcome Text Animation -->
+    <div class="criterion">
+        <div class="text text1">به</div>
+        <div class="text text2"></div>
+        <div class="text text3">بیور</div>
+        <div class="text text4"></div>
+        <div class="text text5">خوش</div>
+        <div class="text text6"></div>
+        <div class="text text7">آمدید!</div>
+    </div>
+
+    <!-- Main Content Box -->
+    <div class="index-box" id="content-box">
+        <div>
+            <img class="index-image" src="static/images/4.jpg" alt="Image" />
+        </div>
+        <div class="button-container">
+            <a href="{{ url_for('signup') }}">
+                <button id="signup-button">ثبت نام</button>
+            </a>
+            <a href="{{ url_for('login') }}">
+                <button id="login-button">ورود</button>
+            </a>
+        </div>
+        
+    </div>
+
+    <!-- Script to trigger the box slide-in -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

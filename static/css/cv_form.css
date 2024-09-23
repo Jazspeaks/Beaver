@@ -1,0 +1,164 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+@font-face {
+  font-family: "Vazirmatn-medium";
+  src: url("../fonts/Vazirmatn-Medium.eot");
+  src: url("../fonts/Vazirmatn-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Vazirmatn-Medium.woff2") format("woff2"),
+    url("../fonts/Vazirmatn-Medium.woff") format("woff"),
+    url("../fonts/Vazirmatn-Medium.svg#Vazirmatn-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn-thin";
+  src: url("../Vazirmatn-Thin.eot");
+  src: url("../Vazirmatn-Thin.eot?#iefix") format("embedded-opentype"),
+    url("../Vazirmatn-Thin.woff2") format("woff2"),
+    url("../Vazirmatn-Thin.woff") format("woff"),
+    url("../Vazirmatn-Thin.svg#Vazirmatn-Thin") format("svg");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*this purt is for the basic information inputs */
+
+.basic-info {
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  font-family: "Vazirmatn-medium";
+  display: block;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  color: #333;
+}
+
+.field input,
+.field textarea,
+.field select {
+  font-family: "Vazirmatn-thin";
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #03737e;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+}
+
+/*this purt is for the cv inputs */
+
+h3 {
+  font-family: "Vazirmatn-medium";
+  font-size: 16px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  color: #333;
+}
+
+.placeholder-of-input {
+  font-family: "Vazirmatn-thin";
+}
+
+.entry-section {
+  margin-bottom: 20px;
+}
+
+.entry-group {
+  font-family: "Vazirmatn-thin";
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.entry-group input {
+  font-family: "Vazirmatn-medium";
+  font-size: 10px;
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #03737e;
+  border-radius: 5px;
+}
+
+button.add-field,
+button.remove-field {
+  margin-top: 8px;
+  margin-left: 5px;
+  font-family: "Vazirmatn-medium";
+  width: 130px;
+  padding: 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #09b7c2;
+  color: white;
+  transition: 0.3s;
+}
+
+button.add-field:hover,
+button.remove-field:hover {
+  background-color: #03737e;
+  color: #fff;
+}
+
+.button-section {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.section {
+  font-family: "Vazirmatn-medium";
+  font-size: 12px;
+}
+
+input[type="submit"] {
+  font-family: "Vazirmatn-medium";
+  margin-top: 100px;
+  margin-right: 170px;
+  margin-left: 20px;
+  width: 150px;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #09b7c2;
+  color: white;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #03737e;
+  color: #fff;
+}

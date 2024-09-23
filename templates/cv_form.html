@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your CV</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/cv_form.css') }}"
+    />
+  </head>
+
+  <body>
+    <form method="POST" action="{{ url_for('cv_form') }}">
+      {{ form.hidden_tag() }}
+
+      <!-- User Information Fields -->
+      <div class="basic-info">
+        <div class="field">
+          <label>{{ form.full_name.label }}</label>
+          {{ form.full_name() }}
+        </div>
+        <div class="field">
+          <label>{{ form.email.label }}</label>
+          {{ form.email() }}
+        </div>
+        <div class="field">
+          <label>{{ form.date_of_birth.label }}</label>
+          {{ form.date_of_birth() }}
+        </div>
+        <div class="field">
+          <label>{{ form.phone_number.label }}</label>
+          {{ form.phone_number() }}
+        </div>
+        <div class="field">
+          <label>{{ form.job_title.label }}</label>
+          {{ form.job_title() }}
+        </div>
+        <div class="field">
+          <label>{{ form.description.label }}</label>
+          {{ form.description() }}
+        </div>
+      </div>
+
+      <!-- Education Section -->
+      <!-- Education Section -->
+      <h3>تحصیلات</h3>
+      <div id="education" class="entry-section">
+        <div class="entry-group">
+          <div>
+            <input
+              type="text"
+              name="education[]"
+              placeholder="تحصیلات را وارد کنید"
+            />
+          </div>
+          <div class="buttons-section">
+            <button class="add-field" data-section="education">
+              افزودن تحصیلات
+            </button>
+            <button class="remove-field" data-section="education">
+              حذف تحصیلات
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Section -->
+      <h3>سوابق شغلی</h3>
+      <div id="experience" class="entry-section">
+        <div class="entry-group">
+          <div>
+            <input
+              type="text"
+              name="experience[]"
+              placeholder="سوابق شغلی را وارد کنید"
+            />
+          </div>
+          <div class="buttons-section">
+            <button class="add-field" data-section="experience">
+              افزودن سوابق
+            </button>
+            <button class="remove-field" data-section="experience">
+              حذف سوابق
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Section -->
+      <h3>پروژه‌ها</h3>
+      <div id="projects" class="entry-section">
+        <div class="entry-group">
+          <div>
+            <input
+              type="text"
+              name="projects[]"
+              placeholder="پروژه‌ها را وارد کنید"
+            />
+          </div>
+          <div class="buttons-section">
+            <button class="add-field" data-section="projects">
+              افزودن پروژه‌
+            </button>
+            <button class="remove-field" data-section="projects">
+              حذف پروژه‌
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Section -->
+      <h3>مهارت‌ها</h3>
+      <div id="skills" class="entry-section">
+        <div class="entry-group">
+          <div>
+            <input
+              type="text"
+              name="skills[]"
+              placeholder="مهارت‌ها را وارد کنید"
+            />
+          </div>
+          <div>
+            <button class="add-field" data-section="skills">
+              افزودن مهارت‌
+            </button>
+            <button class="remove-field" data-section="skills">
+              حذف مهارت‌
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications Section -->
+      <h3>گواهی</h3>
+      <div id="certifications" class="entry-section">
+        <div class="entry-group">
+          <div>
+            <input
+              type="text"
+              name="certifications[]"
+              placeholder="اطلاعات گواهی را وارد کنید"
+            />
+          </div>
+          <div>
+            <button class="add-field" data-section="certifications">
+              افزودن گواهی
+            </button>
+            <button class="remove-field" data-section="certifications">
+              حذف گواهی
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interests Section -->
+      <h3>علایق</h3>
+      <div id="interests" class="entry-section">
+        <div class="entry-group">
+          <div>
+            <input
+              type="text"
+              name="interests[]"
+              placeholder="علایق را وارد کنید"
+            />
+          </div>
+          <div>
+            <button class="add-field" data-section="interests">
+              افزودن علایق
+            </button>
+            <button class="remove-field" data-section="interests">
+              حذف علایق
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h3>توصیه‌نامه‌ها</h3>
+      <div class="section">
+        <div>
+          <p>(در صورت نیاز)</p>
+        </div>
+        <div>
+          <button class="add-field" data-section="references">
+            افزودن توصیه‌نامه‌
+          </button>
+        </div>
+      </div>
+
+      <input class="submit-button" type="submit" value="ثبت" />
+    </form>
+    <!-- JavaScript for Dynamic Fields -->
+    <script src="{{ url_for('static', filename='js/cv_form.js') }}"></script>
+  </body>
+</html>

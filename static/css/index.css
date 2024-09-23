@@ -1,0 +1,188 @@
+/* Variables */
+:root {
+  --number-of-text: 8;
+  --number-of-particle: 12;
+  --mult-num-text: calc(360 / var(--number-of-text));
+  --mult-num-particle: calc(360 / var(--number-of-particle));
+  --width: 40px;
+  --height: 40px;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../fonts/Vazirmatn-Medium.eot');
+  src: url('../fonts/Vazirmatn-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/Vazirmatn-Medium.woff2') format('woff2'),
+      url('../fonts/Vazirmatn-Medium.woff') format('woff'),
+      url('../fonts/Vazirmatn-Medium.svg#Vazirmatn-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset and body styles */
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Vazirmatn';
+  background: #FFF;
+  position: relative;
+  overflow: hidden;
+  font-size: 100%;
+  text-align: center;
+}
+
+/* Criterion */
+.criterion {
+  font-size: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* Background */
+.background {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 12.5%;
+  animation: background-animation 2s ease-in-out 4s 1 normal forwards;
+  z-index: 0; /* Ensures the background is behind the text */
+}
+
+@keyframes background-animation {
+  0% { width: 0; }
+  50% { width: 12.5%; opacity: 1; }
+  100% { opacity: 0; width: 25%; }
+}
+
+/* Text Animation */
+.text {
+  font-family: 'Vazirmatn';
+  background-color: white;
+  color: #038994;
+  margin-right: -270px;
+  margin-top: -50px;
+  position: absolute;
+  width: var(--10*width);
+  line-height: var(--height);
+  overflow: hidden;
+  z-index: 2; /* Ensures the text is in front of the background */
+  opacity: 0;
+}
+
+/* Positioning and animations for each letter */
+.text1 { right: calc(4.8 * var(--width)); animation: text2-animation-1 5.5s ease-in-out 1s 1 normal forwards; }
+.text2 { right: calc(4.8 * var(--width)); animation: text2-animation-2 5.5s ease-in-out 1.1s 1 normal forwards; }
+.text3 { right: calc(5.6 * var(--width)); animation: text2-animation-3 5.5s ease-in-out 1.1s 1 normal forwards; }
+.text4 { right: calc(5.6 * var(--width)); animation: text2-animation-4 5.5s ease-in-out 1.3s 1 normal forwards; }
+.text5 { right: calc(6.8 * var(--width)); animation: text2-animation-5 5.5s ease-in-out 1.4s 1 normal forwards; }
+.text6 { right: calc(7.8 * var(--width)); animation: text2-animation-6 5.5s ease-in-out 1.4s 1 normal forwards; }
+.text7 { right: calc(8.6 * var(--width)); animation: text2-animation-7 5.5s ease-in-out 1.5s 1 normal forwards; }
+
+
+@keyframes text2-animation-1 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@keyframes text2-animation-2 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@keyframes text2-animation-3 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes text2-animation-4 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@keyframes text2-animation-5 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@keyframes text2-animation-6 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@keyframes text2-animation-7 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+
+
+
+.index-box {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: -100%; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-55%);
+  transition: bottom 1s ease-in-out;
+}
+
+.index-image {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+button {
+  margin-right: 10px;
+  margin-left: 20px;
+  font-family: 'Vazirmatn';
+  width: 100px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #09b7c2;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #038994;
+}

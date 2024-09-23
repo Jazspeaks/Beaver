@@ -1,0 +1,25 @@
+
+<h1>Post by {{ post.author.username }}</h1>
+<p>{{ post.content }}</p>
+
+<h2>Comments</h2>
+{% if comments %}
+<div class="comments-section">
+    {% for comment in comments %}
+        <div class="comment">
+            <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+    <p>No comments yet.</p>
+{% endif %}
+
+<h3>Add a Comment</h3>
+<form method="POST" action="{{ url_for('comment', post_id=post.id) }}">
+    <textarea name="content" placeholder="Add your comment here..."></textarea>
+    <input type="submit" value="Comment">
+</form>
+
+
+<p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>

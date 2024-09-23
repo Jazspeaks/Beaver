@@ -1,0 +1,449 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+@font-face {
+  font-family: 'Vazirmatn-medium';
+  src: url('../fonts/Vazirmatn-Medium.eot');
+  src: url('../fonts/Vazirmatn-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/Vazirmatn-Medium.woff2') format('woff2'),
+      url('../fonts/Vazirmatn-Medium.woff') format('woff'),
+      url('../fonts/Vazirmatn-Medium.svg#Vazirmatn-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn-thin';
+  src: url('../Vazirmatn-Thin.eot');
+  src: url('../Vazirmatn-Thin.eot?#iefix') format('embedded-opentype'),
+      url('../Vazirmatn-Thin.woff2') format('woff2'),
+      url('../Vazirmatn-Thin.woff') format('woff'),
+      url('../Vazirmatn-Thin.svg#Vazirmatn-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+.header {
+  background-color: #038994; /* Theme color */
+  padding: 0px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.search-bar {
+  width: 40%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+  font-family: 'Vazirmatn-medium';
+  width: 150px;
+  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
+  color: #038994;
+  border: 2px solid #038994;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+  background-color: #03737e;
+  color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #03737e;
+  color: #fff;
+}
+
+.dropbtn {
+  font-family: 'Vazirmatn-medium';
+  width: 150px;
+  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
+  color: #038994;
+  border: 2px solid #038994;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.header-btn {
+  font-family: 'Vazirmatn-medium';
+  width: 150px;
+  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
+  color: #038994;
+  border: 2px solid #038994;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-btn:hover {
+  background-color: #03737e;
+  color: #fff;
+}
+
+.create-cv-button {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-family: 'Vazirmatn-medium';
+  width: 150px;
+  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
+  color: #038994;
+  border: 2px solid #038994;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.create-cv-button:hover {
+  background-color: #03737e;
+  color: #fff;
+}
+
+
+.slider {
+  width: 90%;
+  height: 400px;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slider > input {
+  display: none;
+}
+
+.slider > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.slider > div > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.4s linear;
+}
+
+.slider > label {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  z-index: 2;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: #038994;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.slider > .label1 {
+  right: 32px;
+}
+
+
+.slider > .label2 {
+  right: -32px;
+}
+
+.slider #image1:checked ~ .div1 > img {
+  opacity: 1;
+}
+
+
+.slider #image2:checked ~ .div2 > img {
+  opacity: 1;
+}
+
+.slider #image3:checked ~ .div3 > img {
+  opacity: 1;
+}
+
+
+
+.post-header {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.myPosts-title {
+  font-family: 'Vazirmatn-medium';
+  font-size: 20px;
+  color: #03737e;
+  margin-top: 10px;
+  margin-right: 30px;
+}
+
+.new-post-button {
+  margin-top: 20px;
+  margin-right: 950px;
+  margin-bottom: 20px;
+  font-family: 'Vazirmatn-medium';
+  width: 150px;
+  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
+  color: #038994;
+  border: 2px solid #038994;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.new-post-button:hover {
+  background-color: #03737e;
+  color: #fff;
+}
+
+
+.user-post-header {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-posts-title {
+  font-family: 'Vazirmatn-medium';
+  font-size: 20px;
+  color: #03737e;
+  margin-top: 10px;
+  margin-right: 30px;
+}
+
+.user-cv-button {
+  margin-top: 20px;
+  margin-right: 940px;
+  margin-bottom: 20px;
+  font-family: 'Vazirmatn-medium';
+  width: 150px;
+  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
+  color: #038994;
+  border: 2px solid #038994;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-cv-button:hover {
+  background-color: #03737e;
+  color: #fff;
+}
+
+
+
+.post {
+  width: 265px;
+  height: 400px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  padding: 20px;
+  margin-right: 17px;
+  margin-bottom: 20px;
+  border: 2px solid #038994;
+}
+
+.post-image {
+  width: 265px;
+  height: 230px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.remove-post-button {
+  margin-top: 50px;
+  margin-right: 95px;
+  margin-bottom: 20px;
+  font-family: 'Vazirmatn-medium';
+  width: 80px;
+  height: 30px;
+  background-color: #fff;
+  color: #038994;
+  border: 2px solid #038994;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.remove-post-button:hover {
+  background-color: #03737e;
+  color: #fff;
+}
+
+.footer {
+  background-color: #038994;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  margin: 0;
+}
+
+#suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions div:hover {
+  background-color: #f0f0f0;
+}
+
+
+.crete-post-form-container {
+  font-family: 'Vazirmatn-medium';
+  margin-top: 50px;
+  margin-right: 510px;
+  margin-left: 490px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.new-post-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+.new-post-info div {
+  margin-bottom: 15px;
+}
+
+.new-post-info label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.new-post-info .form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 2px solid #03737e;
+  margin-bottom: 35px;
+}
+
+
+
+.new-post-info .btn-primary {
+  font-family: 'Vazirmatn-medium';
+  width: 40%;
+  margin-right: 95px;
+  background-color: white;
+  color: #038994;
+  border: 2px solid #03737e;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+.new-post-info .btn-primary:hover {
+  background-color: #03737e;
+  color: white;
+}
+
+

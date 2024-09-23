@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your CV</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/homepage.css') }}"
+    />
+  </head>
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <ul class="flashes">
+    {% for category, message in messages %}
+    <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+
+  <body>
+    <div id="dashboardContent">
+      <header class="header">
+        <div class="header-container">
+          <div class="search-bar" id="searchSection">
+            <form
+              method="GET"
+              action="#"
+              onsubmit="return false;"
+              style="position: relative"
+            >
+              <input
+                type="text"
+                id="searchInput"
+                name="query"
+                placeholder="Search users..."
+                autocomplete="off"
+                onkeyup="searchUsers(this.value)"
+                style="width: 300px; height: 30px"
+              />
+              <div
+                id="suggestions"
+                style="
+                  position: absolute;
+                  background-color: white;
+                  border: 1px solid #ccc;
+                  display: none;
+                  width: 300px;
+                  max-height: 200px;
+                  overflow-y: auto;
+                "
+              >
+                <!-- Suggestions will be injected here -->
+              </div>
+            </form>
+          </div>
+
+          <div class="header-buttons">
+            {% if cv %}
+            <div class="dropdown">
+              <button class="dropbtn">رزومه</button>
+              <div class="dropdown-content">
+                <button class="header-btn" id="profileBtn">مشاهده رزومه</button>
+
+                <button class="header-btn" id="updateBtn">
+                  بروزرسانی رزومه
+                </button>
+              </div>
+            </div>
+            {% else %}
+            <div>
+              <a href="{{ url_for('cv_form') }}">
+                <button class="create-cv-button" id="signup-button">
+                  ساخت رزومه
+                </button>
+              </a>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </header>
+    </br>
+    </br>
+
+      <div class="slider">
+        <input type="radio" id="image1" name="a" checked>
+        <input type="radio" id="image2" name="a">
+        <input type="radio" id="image3" name="a">
+        <div class="div1">
+          <img src="static/images/banner-image3.jpg" alt="">
+        </div>
+        <div class="div2">
+          <img src="static/images/banner-image2.jpg" alt="">
+        </div>
+        <div class="div3">
+          <img src="static/images/banner-image1.jpg" alt="">
+        </div>
+        <label class="label1" for="image1"></label>
+        <label class="label2" for="image2"></label>
+        <label class="label3" for="image3"></label>
+      </div>
+
+      <!-- Posts Section -->
+
+      <!-- Main content area where the create post form or user posts will be rendered -->
+      <div class="main-content">
+        {% if show_create_post %}
+        <div class="crete-post-form-container">
+          <form
+            method="POST"
+            action="{{ url_for('create_post') }}"
+            enctype="multipart/form-data"
+          >
+            {{ form.hidden_tag() }}
+
+            
+
+            <div class="new-post-info">
+              <div>
+                <h7>اطلاعات پست را وارد کنید:</h7>
+            </div>
+              <div>
+                <label>{{ form.title.label }}</label> {{ form.title(rows=1,
+                class_='form-control') }}
+              </div>
+              <div>
+                <label>{{ form.content.label }}</label> {{ form.content(rows=3,
+                class_='form-control') }}
+              </div>
+              <div>
+                <label>{{ form.media.label }}</label> {{ form.media(class_='form-control') }}
+              </div>
+              <div>{{ form.submit(class_='btn btn-primary') }}</div>
+            </div>
+          </form>
+        </div>
+
+        {% else %}
+        <!-- Header for the posts -->
+
+        <div>
+          {% if searched_user.id %}
+          <div class="user-post-header">
+            <div class="user-posts-title">
+              <h2>پست‌های {{ searched_user.username }}:</h2>
+            </div>
+            <div>
+              <button
+                class="user-cv-button"
+                id="profile_userBtn"
+                data-user-id="{{ searched_user.id }}"
+              >
+                رزومه {{ searched_user.username }}
+              </button>
+            </div>
+          </div>
+
+          {% else %}
+          <div class="post-header">
+            <div class="myPosts-title">
+              <h2>پست های من:</h2>
+            </div>
+            <div>
+              <button
+                class="new-post-button"
+                onclick="window.location.href='{{ url_for('dashboard', show_create_post=True) }}'"
+              >
+                ساخت پست جدید
+              </button>
+            </div>
+          </div>
+
+          {% endif %}
+
+          <!-- Display user posts as default -->
+          {% for post in posts %}
+          <div class="post">
+            {% if post.media %}
+
+            <img class="post-image"
+              src="{{ url_for('static', filename='uploads/' + post.media) }}"
+              alt="Post Media"
+            />
+            {% endif %} 
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <a href="{{ url_for('dashboard', post_id=post.id) }}">مشاهده پست</a> <!-- View Post Button -->
+            {% if post.user_id == current_user.id %}
+            <form
+              method="POST"
+              action="{{ url_for('delete_post', post_id=post.id) }}"
+              style="display: inline"
+            >
+              <button class="remove-post-button" type="submit" class="btn btn-danger">حذف پست</button>
+            </form>
+            {% endif %}
+          </div>
+          {% endfor %}
+          {% if post %}
+          <div class="view-post">
+              <h2>{{ post.title }}</h2>
+              <p>{{ post.content }}</p>
+              <h3>نظرات:</h3>
+              <ul>
+              {% for comment in comments %}
+                 <li>{{ comment.content }}</li>
+              {% endfor %}
+              </ul>
+              <form method="POST" action="{{ url_for('comment', post_id=post.id) }}">
+                <textarea name="content" required></textarea>
+                <button type="submit">ارسال نظر</button>
+              </form>
+             </div>
+          {% endif %}
+          </div>
+         {% endif %}
+        
+      </div>
+
+      <!-- Footer Section -->
+      <footer class="footer">
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+      </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
+  </body>
+</html>

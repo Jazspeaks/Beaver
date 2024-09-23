@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  margin-right: 20px; /* Space between image and name */
+}
+
+.name {
+  font-size: 2em; /* Adjust font size as needed */
+  color: #333;
+}
+
+.line {
+  border-bottom: 2px solid #333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  width: 95%;
+}
+
+.contact-info {
+  margin-left: 170px;
+  font-size: 16px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.skills,
+.projects,
+.certifications,
+.interests {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skills li,
+.projects li,
+.certifications li,
+.interests li {
+  background: #e9ecef;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}

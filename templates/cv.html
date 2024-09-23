@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your CV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% if cv %}
+        <div class="profile-header">
+          <img
+            class="profile-image"
+            src="static/images/4.jpg"
+            alt="Profile Image"
+          />
+           <h1 class="name">{{ cv.full_name }}</h1>
+          <div>
+           
+            <div class="contact-info">
+              <p>Email: {{ cv.email }}</p>
+              <p>Phone Number: {{ cv.phone_number }}</p>
+              <p>Date of Birth: {{ cv.date_of_birth }}</p>
+              <p>Job Title: {{ cv.job_title }}</p>
+              <p>Description: {{ cv.description }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="line"></div>
+  
+        <div class="section">
+          <h2>Description</h2>
+          <p>{{ cv.description }}</p>
+        </div>
+        <div class="section">
+          <h2>Education</h2>
+          <ul>
+              {% for edu in cv.education %}
+                  <li>{{ edu.entry }}</li>
+              {% endfor %}
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Experience</h2>
+            <ul>
+                {% for exp in cv.experience %}
+                    <li>{{ exp }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="section">
+          <h2>Projects</h2>
+          <ul class="projects">
+            {% for proj in cv.projects %}
+                <li>{{ proj }}</li>
+            {% endfor %}
+          </ul>  
+        </div>
+        <div class="section">
+          <h2>Skills</h2>
+          <ul class="skills">
+            {% for skill in cv.skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Certifications</h2>
+          <ul class="certifications">
+            {% for cert in cv.certifications %}
+                  <li>{{ cert }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Interests</h2>
+          <ul class="interests">
+            {% for interest in cv.interests %}
+                 <li>{{ interest }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="section">
+          <h2>References</h2>
+          <p>Available upon request.</p>
+        </div>
+        {% endif %}
+      </div>
+    
+    <a class="contact-info" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
